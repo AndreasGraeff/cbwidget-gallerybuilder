@@ -1,7 +1,8 @@
 /**
 * A widget that renders a lightbox image galery built in the GaleryBuilder Module.
 */
-component extends="contentbox.model.ui.BaseWidget" singleton{
+component extends="contentbox.model.ui.BaseWidget" singleton
+{
 
 	GalleryBuilder function init(controller)
 	{
@@ -11,15 +12,17 @@ component extends="contentbox.model.ui.BaseWidget" singleton{
 		setPluginDescription("Embed an image gallery built in the module GalleryBuilder into the content of your site.");
 		setPluginAuthor("Andreas Graeff");
 		setPluginAuthorURL("http://www.artificial-images.de");
+        setIcon( "list.png" );
+        setCategory( "Content" );
 		setForgeBoxSlug("cbwidget-gallerybuilder");
 		return this;
 	}
 
 
-	any function renderGallery(string slug, string defaultValue)
+	any function renderIt(required string slug, string defaultValue)
 	{
 		var content = runEvent(event='contentbox-gallerybuilder:render.gallery', eventArguments=arguments);
-		if ( !isNull(content) )
+		if ( not isNull(content) )
 		{
 			return content;
 		}
